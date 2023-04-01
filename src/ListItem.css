@@ -1,0 +1,32 @@
+.list-item-container{
+  width: 100%;
+  margin-top: 5%;
+  display: flex;
+  /* border: 2px solid red; */
+  gap : 3%;
+}
+.list-item{
+  /* border: 2px solid red; */
+  width: 68%;;
+  height: 3.5rem;
+  box-sizing: border-box;
+  text-align: left;
+  padding: 2% 2%;
+  /* margin-top: 4%; */
+  background-color: rgba(125, 5, 173, 0.721);
+  color :white;
+  border-radius: 8px;;
+
+}
+#delBtn{
+  /* height: 4em; */
+  width: 24%;
+  box-sizing: border-box;
+  padding: 2% 2%;
+  background-color: rgb(125, 5, 173); 
+  color :white;
+  border-radius: 8px;
+  border: none;
+  font-size: 18px;
+
+}
