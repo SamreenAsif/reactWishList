@@ -3,10 +3,9 @@ import "./WishList.css";
 import { ListItem } from "./Components/ListItem";
 import sortIcon from "./imgs/sortIcon.png";
 
+
 export const WishList = () => {
   const [items, setItems] = useState([]);
-  const [selectedValue, setSelectedValue] = useState("low");
-
   const addItem = () => {
     const itemName = document.getElementById("itemName").value;
     if (itemName !== "") {
@@ -16,12 +15,14 @@ export const WishList = () => {
       };
       setItems([...items, newItem]);
     }
-    if (itemName === "") alert("You cannot leave this empty");
+    if (itemName == "") alert("You cannot leave this empty");
   };
 
   const removeItem = (index) => {
     setItems(items.filter((_, i) => i !== index));
   };
+
+  const [selectedValue, setSelectedValue] = useState("low");
 
   const handleSelectChange = (event) => {
     setSelectedValue(event.target.value);
@@ -43,16 +44,16 @@ export const WishList = () => {
     });
     setItems(sortedItems);
   };
-  // just for checking the issue..
-  const setPriority =(priority)=>{
-
-    setSelectedValue(priority);
-    alert(priority); //undefined 
-  }
   const moveItemToTop = (index) => {
     const item = items[index];
     const newItems = items.filter((_, i) => i !== index);
     setItems([item, ...newItems]);
+  };
+
+  const handlePriorityChange = (index, newPriority) => {
+    const updatedItems = [...items];
+    updatedItems[index].priority = newPriority;
+    setItems(updatedItems);
   };
 
   return (
@@ -88,12 +89,11 @@ export const WishList = () => {
               priority={item.priority}
               onDelete={() => removeItem(index)}
               onMoveToTop={moveItemToTop}
-              prioritySet = {selectedValue}
-              setpriority = {()=>setPriority()}
+              onPriorityChange={(newPriority) => handlePriorityChange(index, newPriority)}
             />
           ))}
         </ul>
       </div>
-    </>
-  );
+    </>
+  );
 };
