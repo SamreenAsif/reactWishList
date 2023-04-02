@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./WishList.css";
-import { ListItem } from "./ListItem";
+import { ListItem } from "./Components/ListItem";
 import sortIcon from "./imgs/sortIcon.png";
+
 
 
 export const WishList = () => {
@@ -15,7 +16,7 @@ export const WishList = () => {
       };
       setItems([...items, newItem]);
     }
-    if (itemName == "") alert("You cannot leave this empty");
+    if (itemName === "") alert("You cannot leave this empty");
   };
 
   const removeItem = (index) => {
@@ -83,6 +84,7 @@ export const WishList = () => {
               priority={item.priority}
               onDelete={() => removeItem(index)}
               onMoveToTop={moveItemToTop}
+           
             />
           ))}
         </ul>

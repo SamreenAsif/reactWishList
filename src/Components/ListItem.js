@@ -1,6 +1,7 @@
 import React from "react";
 import "./ListItem.css";
-import movetoTopIcon from "./imgs/movetoTopIcon.png";
+import movetoTopIcon from "./movetoTopIcon.png";
+
 
 export const ListItem = (props) => {
   const moveToTop = () => {
