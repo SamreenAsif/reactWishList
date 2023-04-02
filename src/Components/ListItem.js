@@ -17,17 +17,16 @@ export const ListItem = (props) => {
       <div className="list-item-container">
         <li className="list-item">{props.name}</li>
         <div className="btns-container">
-         {/* if props.priority is changd with selectedValue then sort functionality     is disturbed otherwise update is disturbed ..*/}
           <select
             id="task-priority"
             className={`select ${
-              props.priority === "High" 
+              selectedPriority === "High" 
                 ? "high-priority"
-                : props.priority === "Medium"
+                : selectedPriority === "Medium"
                 ? "medium-priority"
                 : "low-priority"
             }`}
-            value={props.priority}
+            value={selectedPriority}
             onChange={handleSelectChange}
           >
             <option value="Low">Low</option>
